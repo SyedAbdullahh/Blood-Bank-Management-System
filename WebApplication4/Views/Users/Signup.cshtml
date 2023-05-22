@@ -1,0 +1,79 @@
+﻿@model WebApplication4.Models.User
+
+@{
+    ViewData["Title"] = "Signup";
+}
+
+<h1>Signup</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Signup">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="u_Name" class="control-label">Name</label>
+                <input asp-for="u_Name" class="form-control" placeholder="Name here" />
+                <span asp-validation-for="u_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Email" class="control-label" >Email Address</label>
+                <input asp-for="u_Email" class="form-control" type="email" placeholder="Email Here" />
+                <span asp-validation-for="u_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Password" class="control-label">Password</label>
+                <input asp-for="u_Password" class="form-control" type="text" placeholder="Password Here" />
+                <span asp-validation-for="u_Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_PhoneNumber" class="control-label">Phone Number</label>
+                <input asp-for="u_PhoneNumber" class="form-control" type="text" placeholder="Phone Number Here" />
+                <span asp-validation-for="u_PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Address" class="control-label">Address</label>
+                <input asp-for="u_Address" class="form-control" type="text" placeholder="Address Here"/>
+                <span asp-validation-for="u_Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_bloodgroup" class="control-label">Blood Group</label>
+                <select asp-for="u_bloodgroup">
+                    <option value="A+">A Positive</option>
+                    <option value="A-">A Negative</option>
+                    <option value="B+">B Positive</option>
+                    <option value="B-">B Negative</option>
+                    <option value="AB+">AB Positive</option>
+                    <option value="AB-">AB Negative</option>
+                    <option value="O+">O Positive</option>
+                    <option value="O-">O Negative</option>
+                </select>
+                <span asp-validation-for="u_bloodgroup" class="text-danger"></span>
+            </div>
+           @* <div class="form-group">
+                <label asp-for="u_wallet" class="control-label"></label>
+                <input asp-for="u_wallet" class="form-control" />
+                <span asp-validation-for="u_wallet" class="text-danger"></span>
+            </div>*@
+            @*<div class="form-group">
+                <label asp-for="u_status" class="control-label"></label>
+                <input asp-for="u_status" class="form-control" />
+                <span asp-validation-for="u_status" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Signup" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

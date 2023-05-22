@@ -1,0 +1,95 @@
+﻿@model IEnumerable<WebApplication4.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Transactions";
+    Layout = "~/Views/Shared/_Layout_c.cshtml";
+}
+
+<h1>Manage Transactions</h1> 
+<br/>
+<form asp-controller="Transactions" asp-action="Index_s">
+
+        
+        <p>Transaction ID/User Name:</p> <input type="text" name="searchString" />
+       
+        <input type="submit" value="Search" />
+    
+</form>
+
+<p>
+   @* <a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               User Name
+            </th>
+            <th>
+                User ID
+            </th>
+            <th>
+               Transaction Blood Type
+            </th>
+            <th>
+                Transaction Status
+            </th>
+            <th>
+               Transaction Type
+            </th>
+            <th>
+               Quantity of Blood
+            </th>
+            <th>
+               Blood Price
+            </th>
+            <th>
+                Transaction Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_bloodtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_bloodquantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_bloodprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_date)
+            </td>
+            <td>
+                    
+                    
+
+                
+                <a href="@Url.Action("Delete", "Transactions", new { id=@item.t_Id,auth = ViewData["auth"],h_id=ViewBag.h_id})">Delete</a>
+                @if(String.Equals(@item.t_status,"Pending"))
+                {
+            <a href="@Url.Action("Close", "Transactions", new { id=@item.t_Id,auth = ViewData["auth"],h_id=ViewBag.h_id})"> Close </a>
+                }
+                
+                         
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

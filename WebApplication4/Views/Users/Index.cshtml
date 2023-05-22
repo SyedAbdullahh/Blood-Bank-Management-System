@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebApplication4.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                UserName
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+              Password
+            </th>
+            <th>
+                Contact Number
+            </th>
+            <th>
+                User Address
+            </th>
+            <th>
+                User Blood Group
+            </th>
+            <th>
+                Wallet Balance:
+            </th>
+            <th>
+                User Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_bloodgroup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_wallet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.u_Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.u_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

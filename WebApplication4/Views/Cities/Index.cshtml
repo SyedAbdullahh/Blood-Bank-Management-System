@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebApplication4.Models.City>
+
+@{
+    ViewData["Title"] = "Cities";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Cities</h1>
+
+<p>
+    <a asp-action="Create">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>City ID:</th>
+            <th>
+               City Name:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>@Html.DisplayFor(modelItem => item.c_id)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.c_name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.c_id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.c_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

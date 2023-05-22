@@ -1,0 +1,64 @@
+﻿@model WebApplication4.Models.User
+
+@{
+    ViewData["Title"] = "Edit User";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="u_Id" />
+            <div class="form-group">
+                <label asp-for="u_Name" class="control-label">User Name</label>
+                <input asp-for="u_Name" class="form-control" />
+                <span asp-validation-for="u_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Email" class="control-label">User Email:</label>
+                <input asp-for="u_Email" class="form-control" />
+                <span asp-validation-for="u_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Password" class="control-label">User Password:</label>
+                <input asp-for="u_Password" class="form-control" />
+                <span asp-validation-for="u_Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_PhoneNumber" class="control-label">User Phone Number:</label>
+                <input asp-for="u_PhoneNumber" class="form-control" />
+                <span asp-validation-for="u_PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_Address" class="control-label">User Address:</label>
+                <input asp-for="u_Address" class="form-control" />
+                <span asp-validation-for="u_Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_bloodgroup" class="control-label">Blood Group:</label>
+                <input asp-for="u_bloodgroup" class="form-control" />
+                <span asp-validation-for="u_bloodgroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_wallet" class="control-label">User Wallet</label>
+                <input asp-for="u_wallet" class="form-control" />
+                <span asp-validation-for="u_wallet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="u_status" class="control-label">User Status:</label>
+                <input asp-for="u_status" class="form-control" />
+                <span asp-validation-for="u_status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

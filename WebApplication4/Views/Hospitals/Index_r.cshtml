@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication4.Models.Hospital>
+
+@{
+    ViewData["Title"] = "Hospitals";
+    Layout = "~/Views/Shared/_Layout_u.cshtml";
+}
+
+<h1>Hospitals</h1>
+
+
+
+<table class="table">
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="  @Html.DisplayFor(modelItem => item.h_img)" >
+                <div class="card-body">
+                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.h_name)</h5>
+                    <p class="card-text">
+                        <b>Address:</b> @Html.DisplayFor(modelItem => item.h_location)
+                        <br>
+                        <b>Google Maps:</b>@Html.DisplayFor(modelItem => item.h_loc_url)
+                        <br>
+                        <b>Blood Quantity:</b>@Html.DisplayFor(modelItem => item.h_bloodquantity)
+
+
+                    </p>
+                                       <a href="@Url.Action("Index_u", "Blood_data", new {u_id = ViewData["id"], param1 =@item.h_Id, wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"] })" class="btn btn-success mt-3 mx-3">Check Availability</a>
+                    @*<a asp-controller="Blood_data" asp-action="Index_u" asp-route-id="@item.h_Id" class="btn btn-primary">Check Availability</a>*@
+                </div>
+            </div>
+
+        }
+

@@ -1,0 +1,48 @@
+﻿@model WebApplication4.Models.Hospital
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Hospital</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.h_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.h_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.h_location)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.h_location)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.h_loc_url)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.h_loc_url)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.h_img)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.h_img)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.h_bloodquantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.h_bloodquantity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.h_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<WebApplication4.Models.City>
+@{
+    ViewData["Title"] = "Select City";
+    Layout = "~/Views/Shared/_Layout_u.cshtml";
+    
+
+}
+<form method="post" action="@Url.Action("SelectCity", "Users")">
+
+    <input type="hidden" name="wallet" value=@ViewData["wallet"] />
+    <input type="hidden" name="name" value=@ViewData["name"] />
+
+
+    <input type="hidden" name="auth" value=@ViewBag.auth />
+    <input type="hidden" name="id" value="@ViewData["id"]" />
+    <p>Select City</p>
+    <div class="form-group">
+        <select id="city" name="city" asp-validation-for="c_name"placeholder="Select City">
+           
+
+            @foreach (var item in Model)
+            {
+              
+                 <option value="@item.c_name">@Html.DisplayFor(modelItem => item.c_name)</option>
+            }
+
+        </select>
+    </div>
+    <input type="submit" value="Load Hospitals" class="btn btn-primary" />
+</form>
+
+
+
+   
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = " Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+
+}
+
+<h1>Dashboard</h1>
+<p>Hello! Admin</p>
+
+@*<a type="button" class="btn btn-success mt-3 mx-3" asp-controller="Cities" asp-action="Index">Manage Cities</a>
+<a type="button" class="btn btn-secondary mt-3 mx-3" asp-controller="Hospitals" asp-action="Index">Manage Hospitals</a>*@
+<a href="@Url.Action("Index", "Cities", new { param1 = ViewData["auth"]})" class="btn btn-success mt-3 mx-3">Manage Cities</a>
+<a href="@Url.Action("Index", "Hospitals", new { auth = ViewData["auth"]})" class="btn btn-secondary mt-3 mx-3">Manage Hospitals</a>
+<a href="@Url.Action("Index", "Employees", new { param1 = ViewData["auth"]})" class="btn btn-danger mt-3 mx-3">Manage Employees</a>
+<a href="@Url.Action("Index", "Users", new { param1 = ViewData["auth"]})" class="btn btn-info mt-3 mx-3">Manage Users</a>
+
+
+@*<a type="button" class="btn btn-primary mt-3 mx-3" asp-controller="Home" asp-action="Recieve">Recieve Blood</a>*@
+<a href="@Url.Action("Transaction", "Admin", new { auth = ViewData["auth"]})" class="btn btn-success mt-3 mx-3"> Manage Transactions</a>
+@*<a type="button" class="btn btn-secondary mt-3 mx-3" asp-controller="Transactions" asp-action="Index" asp-route-id="@ViewData["id"]">Transaction History</a>*@
+
+

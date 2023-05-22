@@ -1,0 +1,77 @@
+﻿@model WebApplication4.Models.Employee
+
+@{
+    ViewData["Title"] = "Add Employee";
+
+    
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="e_Name" class="control-label">Employee Name:</label>
+                <input asp-for="e_Name" class="form-control" />
+                <span asp-validation-for="e_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="e_Email" class="control-label">Employee Email:</label>
+                <input asp-for="e_Email" class="form-control" />
+                <span asp-validation-for="e_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="e_Password" class="control-label">Employee Password:</label>
+                <input asp-for="e_Password" class="form-control" />
+                <span asp-validation-for="e_Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label">Employee Status:</label>
+                <select asp-for="status" class="form-control">
+                    
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                   
+                </select>
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="e_centre_id" class="control-label"> Select Hospital/Centre:</label>
+                <select asp-for="e_centre_id" class="form-control">
+                    @{
+                        var products = ViewBag.Products as List<string>;
+                        var ids = ViewBag.id as List<int>;
+                    }
+
+                   
+                        @foreach (var (product, idt) in products.Zip(ids, (a, b) => (a, b)))
+                        {
+                            <option value="@idt">@product</option>
+                        }
+                    </select>
+
+                    
+               
+
+
+                  
+               
+
+                <span asp-validation-for="e_centre_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

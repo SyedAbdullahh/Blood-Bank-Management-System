@@ -1,0 +1,42 @@
+﻿@model WebApplication4.Models.Blood_data
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Blood_data</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.h_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.h_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.b_type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.b_type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.b_quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.b_quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.b_price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.b_price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.b_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

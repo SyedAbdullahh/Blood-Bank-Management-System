@@ -1,0 +1,47 @@
+﻿@model WebApplication4.Models.Blood_data
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Blood Data</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="b_Id" />
+            <div class="form-group">
+                <label asp-for="h_id" class="control-label">Hospital ID:</label>
+                <input asp-for="h_id" class="form-control" readonly/>
+                <span asp-validation-for="h_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="b_type" class="control-label">Blood Group:</label>
+                <input asp-for="b_type" class="form-control" readonly />
+                <span asp-validation-for="b_type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="b_quantity" class="control-label">Blood Quantity:</label>
+                <input asp-for="b_quantity" class="form-control" />
+                <span asp-validation-for="b_quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="b_price" class="control-label">Blood Price:</label>
+                <input asp-for="b_price" class="form-control" />
+                <span asp-validation-for="b_price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a href="@Url.Action("Index", "Blood_data", new { h_id=ViewBag.h_id,param1 = ViewData["auth"],})" >Back to List</a>
+</div>
+

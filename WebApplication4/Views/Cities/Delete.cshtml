@@ -1,0 +1,27 @@
+﻿@model WebApplication4.Models.City
+
+@{
+    ViewData["Title"] = "Delete City";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>City</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+           City Name:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.c_name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="c_id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </form>
+</div>

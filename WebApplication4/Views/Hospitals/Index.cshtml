@@ -1,0 +1,67 @@
+﻿
+
+
+@model IEnumerable<WebApplication4.Models.Hospital>
+
+@{
+    ViewData["Title"] = "Hospitals";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Hospitals</h1>
+
+<p>
+    <a asp-action="Create">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hospital ID:</th>
+            <th>
+                Hospital Name
+            </th>
+            <th>City</th>
+            <th>
+                Hospital Location
+            </th>
+            <th>
+                Location URL:
+            </th>
+            <th>
+                Hospital Image
+            </th>
+            <th>
+                BLood Quantity
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.h_Id)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.h_name)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.h_city)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.h_location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.h_loc_url)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.h_img)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.h_bloodquantity)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.h_Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.h_Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

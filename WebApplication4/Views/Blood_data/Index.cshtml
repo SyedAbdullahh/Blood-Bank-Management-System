@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication4.Models.Blood_data>
+
+@{
+    ViewData["Title"] = "Blood Stock Management";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1>Blood Stock</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Blood_data", new { h_id=ViewBag.h_id,param1 = ViewData["auth"]})">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Hospital ID
+            </th>
+            <th>
+                Blood Group
+            </th>
+            <th>
+               Blood Quantity
+            </th>
+            <th>
+              Blood Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.h_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.b_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.b_quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.b_price)
+            </td>
+           <td>
+                <a  href="@Url.Action("Edit", "Blood_data", new { id=@item.b_Id,h_id=ViewBag.h_id,param1 = ViewData["auth"]})">Edit</a>|
+                
+                    <a href="@Url.Action("Delete", "Blood_data", new { id=@item.b_Id,h_id=ViewBag.h_id,param1 = ViewData["auth"]})">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

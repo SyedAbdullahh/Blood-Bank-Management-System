@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = " Employee Dashboard";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1>Dashboard</h1>
+<p>Hello! </p>
+
+
+@*<a type="button" class="btn btn-primary mt-3 mx-3" asp-controller="Blood_data" asp-action="Index">Blood Stock Management</a>*@
+<a href="@Url.Action("Index", "Transactions", new { auth = ViewData["auth"],id=ViewData["id"]})" class="btn btn-success mt-3 mx-3">Manage Transactions </a>
+<a href="@Url.Action("Index", "Blood_data", new { param1 = ViewData["auth"],h_id=ViewData["id"]})" class="btn btn-secondary mt-3 mx-3">Blood Stock Management</a>
+@*<a type="button" class="btn btn-secondary mt-3 mx-3" asp-controller="Transactions" asp-action="Index" asp-route-id="@ViewData["id"]">Transaction History</a>*@
+
+

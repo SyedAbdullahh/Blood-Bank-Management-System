@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<h1>Confirmation</h1>
+@if(ViewBag.t==1)
+{
+  
+    <h2>Receipt</h2>
+    <p>Transaction ID:@ViewBag.TID</p>
+    <p>User Name:@ViewBag.u_name</p>
+    <p>Product: @ViewBag.b_type Blood</p>
+    <p>Quantity: @ViewBag.q Litres</p>
+    <p>Total Bill: @ViewBag.bill</p>
+    <p>Method: Paid in Cash</p>
+    <hr>
+
+}
+@if(ViewBag.t==2)
+{
+
+<h2>Receipt for Deduction of Credit from Account Wallet</h2>
+<p>Transaction ID:@ViewBag.TID</p>
+<p>User Name:@ViewBag.u_name</p>
+<p>Product: @ViewBag.b_type Blood</p>
+<p>Quantity: @ViewBag.q Litres</p>
+<p>Total Bill: @ViewBag.bill</p>
+<hr>
+<p>Remaining Balance in Wallet:@ViewBag.rem</p>
+
+}
+@if(ViewBag.t==3)
+{
+
+<h2>Receipt for Addition of Credit from Account Wallet</h2>
+<p>Transaction ID:@ViewBag.TID</p>
+<p>User Name:@ViewBag.u_name</p>
+<p>Product: @ViewBag.b_type Blood</p>
+<p>Quantity: @ViewBag.q Litres</p>
+<p>Total Amount: @ViewBag.bill</p>
+<hr>
+<p> Updated Balance in Wallet:@ViewBag.rem</p>
+
+}

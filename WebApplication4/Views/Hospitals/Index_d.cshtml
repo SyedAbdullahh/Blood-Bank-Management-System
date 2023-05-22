@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication4.Models.Hospital>
+
+@{
+    ViewData["Title"] = "Hospitals";
+    Layout = "~/Views/Shared/_Layout_u.cshtml";
+}
+
+<h1>Hospitals</h1>
+
+
+
+<table class="table">
+    
+    <tbody>
+@foreach (var item in Model) {
+        <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@Html.DisplayFor(modelItem => item.h_img)"  alt="">
+      <div class="card-body">
+                    <h5 class="card-title"> @Html.DisplayFor(modelItem => item.h_name)</h5>
+        <p class="card-text">
+           <b>Address:</b> @Html.DisplayFor(modelItem => item.h_location)
+           <br>
+           <b>Google Maps:</b>@Html.DisplayFor(modelItem => item.h_loc_url)
+           <br>
+           <b>Blood Quantity:</b>@Html.DisplayFor(modelItem => item.h_bloodquantity)
+
+
+        </p>
+                   @* <a href="@Url.Action("Create", "Transactions", new { param2 =ViewBag.Id,,param4="Recieve", wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"]})" class="btn btn-success mt-3 mx-3">Receive Blood</a>*@
+
+                    <a href="@Url.Action("Create_d", "Transactions", new {param2 = item.h_Id,id=ViewData["id"],param4="Donate",wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"] })" class="btn btn-success mt-3 mx-3">Donate Blood</a>
+                </div>
+    </div>
+     
+}
+    

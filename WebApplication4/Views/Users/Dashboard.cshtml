@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout_u.cshtml";
+}
+
+<h1>Dashboard</h1>
+<p>Hi @ViewData["name"]</p>
+<p>Balance:<b>@ViewData["wallet"]</b></p>
+
+
+@*<a type="button" class="btn btn-success mt-3 mx-3" asp-controller="Users" asp-action="Donate">Donate Blood</a>*@
+<a href="@Url.Action("SelectCity", "Users", new {wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"], id = ViewData["id"] })" class="btn btn-success mt-3 mx-3">Donate Blood</a>
+<a href="@Url.Action("SelectCity_r", "Users", new {wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"], id = ViewData["id"] })" class="btn btn-success mt-3 mx-3">Receive Blood</a>
+
+@*<a type="button" class="btn btn-primary mt-3 mx-3" asp-controller="Home" asp-action="Recieve">Recieve Blood</a>*@
+<a href="@Url.Action("Index_u", "Transactions", new {wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"], id = ViewData["id"] })" class="btn btn-success mt-3 mx-3">Transaction History</a>
+@*<a type="button" class="btn btn-secondary mt-3 mx-3" asp-controller="Transactions" asp-action="Index" asp-route-id="@ViewData["id"]">Transaction History</a>*@
+
+

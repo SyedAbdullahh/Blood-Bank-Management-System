@@ -1,0 +1,96 @@
+﻿@model IEnumerable<WebApplication4.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Transactions";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Transaction History</h1> 
+<br/>
+<form asp-controller="Admin" asp-action="Index_s" method="get">
+
+        
+        <p>Transaction ID/User Name:</p> <input type="text" name="searchString" />
+       
+        <input type="submit" value="Search" />
+    
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Transaction ID</th>
+            <th>
+               User Name
+            </th>
+            <th>
+                User ID
+            </th>
+            <th>
+               Transaction Blood Type
+            </th>
+            <th>
+                Transaction Status
+            </th>
+            <th>
+               Transaction Type
+            </th>
+            <th>
+               Quantity of Blood
+            </th>
+            <th>
+               Blood Price
+            </th>
+            <th>
+                Transaction Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem=>item.t_Id)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.u_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_bloodtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_bloodquantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_bloodprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.t_date)
+            </td>
+            <td>
+                   
+                
+                 @if(String.Equals(@item.t_status,"Pending"))
+                   {
+                    <a asp-action="Close" asp-route-id="@item.t_Id">Close</a>
+                   }
+                        
+                        
+                    
+                    
+               
+                |<a asp-action="Delete" asp-route-id="@item.t_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

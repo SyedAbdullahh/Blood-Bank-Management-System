@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebApplication4.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employees";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID:</th>
+            <th>
+            Employee Name
+            </th>
+            <th>
+                Email Address:
+            </th>
+            <th>
+                Password:
+            </th>
+            <th>
+                Status:
+            </th>
+            <th>
+                Employee Centre ID:
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem=>item.e_Id)</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.e_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.e_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.e_Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.e_centre_id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.e_Id">Edit</a> |
+               <a asp-action="Delete" asp-route-id="@item.e_Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

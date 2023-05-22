@@ -1,0 +1,50 @@
+﻿@model WebApplication4.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit Employee";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="e_Id" />
+            <div class="form-group">
+                <label asp-for="e_Name" class="control-label">Employee Name:</label>
+                <input asp-for="e_Name" class="form-control" />
+                <span asp-validation-for="e_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="e_Email" class="control-label">Email:</label>
+                <input asp-for="e_Email" class="form-control" />
+                <span asp-validation-for="e_Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="e_Password" class="control-label">Password:</label>
+                <input asp-for="e_Password" class="form-control" />
+                <span asp-validation-for="e_Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label">Status:</label>
+                <input asp-for="status" class="form-control" />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="e_centre_id" class="control-label">Centre ID:</label>
+                <input asp-for="e_centre_id" class="form-control" />
+                <span asp-validation-for="e_centre_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

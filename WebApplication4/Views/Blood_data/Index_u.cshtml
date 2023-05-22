@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication4.Models.Blood_data>
+
+@{
+    ViewData["Title"] = "Blood Availability";
+    Layout = "~/Views/Shared/_Layout_u.cshtml";
+}
+
+<h1>Blood Availability</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+             Hospital ID
+            </th>
+            <th>
+                Blood Group
+            </th>
+            <th>
+             Blood Quantity
+            </th>
+            <th>
+                Blood Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.h_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.b_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.b_quantity) Litres
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.b_price)
+                </td>
+                <td>
+                    
+                    <a href="@Url.Action("Create", "Transactions", new { param1 =@item.b_Id, param2 =ViewBag.Id,u_id=ViewData["id"],param4="Recieve", wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"],rn=ViewBag.u_id})" class="btn btn-success mt-3 mx-3">Recieve Blood</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
