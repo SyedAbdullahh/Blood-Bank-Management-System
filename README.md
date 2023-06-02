@@ -19,6 +19,6 @@ Forget standing in Queues, get your blood reserved with a single click🤝✨
 
 
 
-### Give it a Try⚡
+### Give it a Try⚡:
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](http://blood-bank-management-system.somee.com/)
