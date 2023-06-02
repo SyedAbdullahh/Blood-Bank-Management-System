@@ -1,3 +1,4 @@
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 🚀🚀Introducing My Blood Bank Network Management System Project that will Digitalise the processes of Getting blood for ourselves or relatives. 
 Forget standing in Queues, get your blood reserved with a single click🤝✨
 
