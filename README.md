@@ -1,3 +1,4 @@
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=SyedAbdullahh)](https://github.com/anuraghazra/github-readme-stats)
 🚀🚀Introducing My Blood Bank Network Management System Project that will Digitalise the processes of Getting blood for ourselves or relatives. 
 Forget standing in Queues, get your blood reserved with a single click🤝✨
 
