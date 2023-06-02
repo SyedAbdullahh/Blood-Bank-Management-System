@@ -11,6 +11,13 @@ Forget standing in Queues, get your blood reserved with a single click🤝✨
 ### 👉Employee Dashboard💻:
 - Updating Blood Data when there’s new stock not coming from portal.
 - Closing Transactions of Users with same features mentioned above🤩
+## Tech Stack
+
+**Front-End:** HTML, CSS, Bootstrap, JavaScript
+
+**Server:** C#, ASP.NET Core MVC,SQL
+
+
 
 ### Give it a Try⚡
 
