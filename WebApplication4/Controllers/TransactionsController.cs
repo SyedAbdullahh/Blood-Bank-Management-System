@@ -255,19 +255,25 @@ namespace WebApplication4.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create_d([Bind("t_Id,u_name,u_id,h_id,t_bloodtype,t_status,t_type,t_bloodquantity,t_bloodprice,t_date,b_id")] Transaction transaction)
         {
+            var ussr = _context.Users.FirstOrDefault(x => x.u_Id == transaction.u_id);
+            ////bool flag = _context.Users.Any(x => x.u_Email == usrr.u_Email && x.u_Password == usrr.u_Password);
+            ////bool flagg = (_context.Users?.Any(x => x.u_Email == usrr.u_Email && x.u_Password == usrr.u_Password)).GetValueOrDefault();
+            var usr = _context.Users.Where(x => x.u_Id==transaction.u_id).FirstOrDefault();
             transaction.t_status = "Pending";
             if (ModelState.IsValid)
             {
                 _context.Add(transaction);
 
-                var blood = _context.Bloods.FirstOrDefault(x => x.b_Id == transaction.b_id);
+               
                 await _context.SaveChangesAsync();
+             
 
                 return RedirectToAction("Confirmation", "Transactions", new
                 {
+                  
                     TID = transaction.t_Id,
                     HID = transaction.h_id,
-
+                    
 
                 });
             }
@@ -279,7 +285,15 @@ namespace WebApplication4.Controllers
         {
            
             ViewBag.TID = TID;
-            var h=_context.Hospitals.FirstOrDefault(x => x.h_Id ==HID);
+            var t = _context.Transactions.FirstOrDefault(x => x.t_Id == TID);
+
+            var ussr =  _context.Users.FirstOrDefault(x => x.u_Id == t.u_id);
+            ViewData["wallet"] = ussr.u_wallet;
+            ViewData["name"] = ussr.u_Name;
+            ViewData["id"] = ussr.u_Id;
+            ViewData["auth"] = true;
+
+            var h = _context.Hospitals.FirstOrDefault(x => x.h_Id == HID);
             ViewBag.Hospital = h.h_name;
             return View();   
         }
@@ -401,7 +415,8 @@ namespace WebApplication4.Controllers
                             {
                                 t = 1,
                                 u_id=usr.u_Id,
-                                tid=transaction.t_Id
+                                tid=transaction.t_Id,
+                                hid=transaction.h_id
 
                             }) ;
 
@@ -418,7 +433,8 @@ namespace WebApplication4.Controllers
                             {
                                 t = 2,
                                 u_id = usr.u_Id,
-                                tid = transaction.t_Id
+                                tid = transaction.t_Id,
+                                hid = transaction.h_id
 
                             });
                         }
@@ -438,7 +454,9 @@ namespace WebApplication4.Controllers
                         {
                             t = 3,
                             u_id = usr.u_Id,
-                            tid = transaction.t_Id
+                            tid = transaction.t_Id,
+                            hid = transaction.h_id
+
 
                         });
 
@@ -471,7 +489,7 @@ namespace WebApplication4.Controllers
             }
             return View(transaction);
         }
-        public async Task<IActionResult> Closed(int t,int u_id,int tid)
+        public async Task<IActionResult> Closed(int t,int u_id,int tid,int hid)
         {
            
             var transactionn = await _context.Transactions.FindAsync(tid);
@@ -485,7 +503,7 @@ namespace WebApplication4.Controllers
             ViewBag.bill=(transactionn.t_bloodquantity*transactionn.t_bloodprice);
             ViewBag.rem=usr.u_wallet;
             
-            ViewData["id"] = tr.h_id;
+            ViewData["id"] = hid;
             ViewData["auth"] = true;
             ViewBag.t = t;
             return View();

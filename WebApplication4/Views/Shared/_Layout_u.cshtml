@@ -36,13 +36,13 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container" style="margin-bottom: 351px;">
         <main role="main" class="pb-12 mb-5">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="margin-top:254px">
         <div class="container">
             &copy; 2023 - Blood Bank International - <a href="@Url.Action("Privacy", "Users", new {wallet=ViewData["wallet"],name=ViewData["name"], auth = ViewData["auth"], id = ViewData["id"] })">Privacy</a>
            

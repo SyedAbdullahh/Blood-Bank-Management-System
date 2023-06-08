@@ -22,8 +22,16 @@ namespace WebApplication4.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string?v)
         {
+            if (v != null)
+            {
+                ViewBag.v = true;
+            }
+            else
+            {
+                ViewBag.v = false;
+            }
             return View();
         }
 
@@ -57,7 +65,10 @@ namespace WebApplication4.Controllers
             else
             {
 
-                return RedirectToAction("Login", "Employee");
+                return RedirectToAction("Login", "Employee", new
+                {
+                    v = "Incorrect Employee ID or Password"
+                });
             }
 
 

@@ -23,6 +23,14 @@
                 <input asp-for="u_Password" class="form-control" type="password" />
                 <span asp-validation-for="u_Password" class="text-danger" type="password"></span>
             </div>
+            
+            @if(ViewBag.v==true)
+            {
+                <div class="form-group">
+                    <p class="text-danger">Incorrect Email or Password</p>
+                </div>
+            }
+           
 
 
 

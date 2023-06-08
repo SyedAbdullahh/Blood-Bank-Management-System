@@ -16,3 +16,28 @@ html {
 body {
   margin-bottom: 60px;
 }
+@media only screen and (min-width: 769px) 
+{
+    .home_img {
+        background-image: url(https://www.imgtr.ee/images/2023/06/08/D7MR7.jpg);
+        background-size: 100% 100%;
+        padding-bottom: 123px;
+        font-size:x-large;
+        font-weight:700;
+        color:black;
+    }
+    
+}
+
+@media only screen and (min-width: 320px) and (max-width:768px ) {
+    .home_img {
+        background-image: url(https://www.imgtr.ee/images/2023/06/08/DqUNs.jpg);
+        background-size: 100% 100%;
+        padding-bottom: 123px;
+        font-size: x-large;
+        font-weight: 700;
+        color: black;
+    }
+}
+
+

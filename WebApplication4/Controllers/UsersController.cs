@@ -38,9 +38,9 @@ namespace WebApplication4.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index(bool auth)
+        public async Task<IActionResult> Index(bool param1)
         {
-            ViewData["auth"] = auth;
+            ViewData["auth"] = param1;
               return _context.Users != null ? 
                           View(await _context.Users.ToListAsync()) :
                           Problem("Entity set 'ProjDbContext.Users'  is null.");
@@ -144,8 +144,18 @@ namespace WebApplication4.Controllers
             return View(user);
         }
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string ?v)
         {
+           
+            if(v!=null)
+            {
+                ViewData["v"] = true ;
+            }
+            else
+            {
+                ViewData["v"] = false;
+            }
+            
             return View();
         }
 
@@ -179,8 +189,12 @@ namespace WebApplication4.Controllers
             }
             else
             {
-                
-                return RedirectToAction("Login", "Users");
+
+                return RedirectToAction("Login", "Users", new
+                {
+                    v = "Incorrect User Email or Password"
+                });
+
             }
 
 

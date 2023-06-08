@@ -22,7 +22,8 @@ namespace WebApplication4.Controllers
         // GET: Employees
         public async Task<IActionResult> Index(bool param1)
         {
-            if(param1)
+            ViewData["auth"] = param1;
+            if (param1)
             {
                 return _context.Employees != null ?
                           View(await _context.Employees.ToListAsync()) :
@@ -38,6 +39,7 @@ namespace WebApplication4.Controllers
         // GET: Employees/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            ViewData["auth"] =true;
             if (id == null || _context.Employees == null)
             {
                 return NotFound();
@@ -56,6 +58,7 @@ namespace WebApplication4.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
+
             ViewData["auth"] = true;
             var hospitals = _context.Hospitals.ToList();
             List<string> s = new List<string>();
@@ -178,7 +181,8 @@ namespace WebApplication4.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            
+            ViewData["auth"] = true;
+
             if (_context.Employees == null)
             {
                 return Problem("Entity set 'ProjDbContext.Employees'  is null.");

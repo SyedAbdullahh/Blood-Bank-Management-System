@@ -16,8 +16,17 @@ namespace WebApplication4.Controllers
             _context = context;
         }
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string ? v)
         {
+            if (v != null)
+            {
+                ViewData["v"] = true;
+            }
+            else
+            {
+                ViewData["v"] = false;
+            }
+
             return View();
         }
 
@@ -50,7 +59,10 @@ namespace WebApplication4.Controllers
             else
             {
 
-                return RedirectToAction("Login", "Admin");
+                return RedirectToAction("Login", "Admin", new
+                {
+                    v = "Incorrect Admin ID or Password"
+                });
             }
 
 
