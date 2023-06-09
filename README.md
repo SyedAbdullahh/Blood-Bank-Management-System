@@ -90,24 +90,23 @@ Contributions to the Blood Bank Network Management System project are welcome. I
 ## Application Interface
 
 Here are some screenshots showcasing the interface of the Blood Bank Network Management System:
-
+#### Home Page
 ![Home Page](https://imgtr.ee/images/2023/06/08/Dkc0A.png)
+#### User's Dashboard
 
 ![User Dashboard](https://imgtr.ee/images/2023/06/08/Dkud2.png)
-
+#### Hospitals as per Selected City:
 ![Hospitals](https://imgtr.ee/images/2023/06/08/DkjKJ.png)
-
+#### Open Donation Transaction
 ![Donation Transaction](https://imgtr.ee/images/2023/06/08/Dk3Ci.png)
-
+#### Check Blood Availability for Recieval:
 ![Blood Availability](https://imgtr.ee/images/2023/06/08/DkHwn.png)
-
+#### Confirmation of Transaction and Showing Transaction ID for User to Refer to while Claiming:
 ![Transaction ID](https://imgtr.ee/images/2023/06/08/Dkg3Y.png)
-
+#### User's Transaction History:
 ![Transaction History](https://imgtr.ee/images/2023/06/08/DnMds.png)
-
+#### Admin Dashboard
 ![Admin Dashboard](https://imgtr.ee/images/2023/06/08/DnnwV.png)
-
-![Receipt](https://imgtr.ee/images/2023/06/
 
 ### Reach Me Out At:
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/syed-abdullah-hassan-a17286215/)
